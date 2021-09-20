@@ -14,7 +14,7 @@ const setupCamera = () => {
 const detectFaces = async () => {
     const prediction = await model.estimateFaces(Video,false);
     //console.log(prediction)
-    ctx.drawImage(Video,0,0,600,400);
+    ctx.drawImage(Video,0,0,canvas.style.width,canvas.style.width);
     prediction.forEach( pred => {
     const start = pred.topLeft;
     const end = pred.bottomRight;
