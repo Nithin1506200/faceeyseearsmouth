@@ -8,6 +8,26 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+        <div class="preload">
+            <div class="container1i">
+                <div class="dot dot1"></div>
+                <div class="dot dot2"></div>
+                <div class="dot dot3"></div>
+            </div>
+            <p>Loading...</p>
+            <div class="progressw">
+                <div class="windowprogress"></div>
+            </div>
+            <div class="browser">
+                <span>Nithin N ENG18EC0072</span>
+                <span> Recommended Browser:Firefox</span>
+        
+                <img
+                    src="https://www.mozilla.org/media/protocol/img/logos/firefox/browser/logo-word-hor-xs.c87882e8c93c.png"
+                    alt="firefoxlogo"
+                >
+            </div>
+        </div>
     <h1>Face Detection</h1>
     <video id="video1" autoplay style="display: none;"></video>
     <canvas
@@ -22,7 +42,18 @@
            width="600px"
         height="400px"
     ></canvas>
+    <button id="myBtn">start</button>
 </body>
+<script>
+    let loadfun = document.querySelector(".preload");
+    let progressBar = document.querySelector(".windowprogress");
+
+    window.onload = () => {
+        loadfun.classList.add("loadcomplete");
+        setTimeout(() => { loadfun.style.display = 'none'; }, 5000)
+
+    };
+</script>
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/blazeface"></script>
 <script src="script.js"></script>

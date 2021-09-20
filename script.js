@@ -20,6 +20,7 @@ const setupCamera = () => {
 };
 const detectFaces = async () => {
     ctx2.drawImage(Video,0,0,w,h)
+   
     const prediction = await model.estimateFaces(canvas2,false);
     console.log(prediction)
    ctx.drawImage(Video,0,0,w,h);
@@ -66,11 +67,23 @@ const detectFaces = async () => {
     })
     })
     delete(prediction)
+
     //console.log(prediction)
 }
-setupCamera();
+
+
+setupCamera()
+let btn=document.querySelector("#myBtn");
+let run = false;
+btn.addEventListener("click",()=> {
+    run=!run;
+    if(run){
 Video.addEventListener("loadeddata" , async ()=> {
     model= await blazeface.load();
     setInterval(detectFaces,200);
+    btn.style.display="none";
+   // console.log("itson")
 })
+    }
 
+})
