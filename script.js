@@ -65,12 +65,12 @@ const detectFaces = async () => {
         ctx.fillRect(e[0],e[1],5,5)
     })
     })
-   // delete(prediction)
+    delete(prediction)
     //console.log(prediction)
 }
 setupCamera();
 Video.addEventListener("loadeddata" , async ()=> {
     model= await blazeface.load();
-    setInterval(detectFaces,200);
+    setInterval(detectFaces,100);
 })
 
