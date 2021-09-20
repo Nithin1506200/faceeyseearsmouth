@@ -2,6 +2,8 @@ let Video=document.getElementById("video1");
 let model;
 let canvas=document.getElementById("canvas");
 let ctx = canvas.getContext("2d");
+let canvas2=document.getElementById("can2");
+let ctx2=canvas2.getContext("2d");
 let w=600;
 let h=400;
 //canvas.width = w;
@@ -13,13 +15,14 @@ const setupCamera = () => {
     }).then(stream =>{
         Video.srcObject=stream;
      //     let stream_settings = stream.getVideoTracks()[0].getSettings();
-
+        
     });
 };
 const detectFaces = async () => {
-    const prediction = await model.estimateFaces(Video,false);
+    ctx2.drawImage(Video,0,0,w,h)
+    const prediction = await model.estimateFaces(canvas2,false);
     console.log(prediction)
-    ctx.drawImage(Video,0,0,w,h);
+   ctx.drawImage(Video,0,0,w,h);
     prediction.forEach( pred => {
     const start = pred.topLeft;
     const end = pred.bottomRight;
