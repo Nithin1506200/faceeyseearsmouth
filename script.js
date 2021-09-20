@@ -81,7 +81,7 @@ btn.addEventListener("click",()=> {
    
 Video.addEventListener("loadeddata" , async ()=> {
     model= await blazeface.load();
-    setInterval(detectFaces,200);
+    setInterval(detectFaces,100);
     
    console.log("itson")
 })
