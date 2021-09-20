@@ -142,3 +142,17 @@ body {
       height: 50%;
   }
 }
+body::after {
+    content: "";
+    width: 200%;
+    height: 100%;
+    background:rgba(175, 175, 175, 0.6);
+    position: absolute;
+    z-index: -2;
+    border-radius: 50% 50%;
+    transform:translatey(-50%);
+   
+}
+body > h1 {
+    color: white;
+}
