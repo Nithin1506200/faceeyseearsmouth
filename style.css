@@ -127,7 +127,7 @@ body {
     width: 100px;
     height: 40px;
     box-shadow: 2px 2px 4px 0px rgb(116, 116, 116);
-    background-color: rgb(74, 199, 236);
+    background-color: rgb(236, 74, 74);
     border: none;
     border-radius: 3px;
     transition: all .5s;

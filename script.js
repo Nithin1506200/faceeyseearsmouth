@@ -72,18 +72,19 @@ const detectFaces = async () => {
 }
 
 
-setupCamera()
+
 let btn=document.querySelector("#myBtn");
 let run = false;
 btn.addEventListener("click",()=> {
-    run=!run;
-    if(run){
+   setupCamera()
+ btn.style.display="none";
+   
 Video.addEventListener("loadeddata" , async ()=> {
     model= await blazeface.load();
     setInterval(detectFaces,200);
-    btn.style.display="none";
-   // console.log("itson")
+    
+   console.log("itson")
 })
-    }
+    
 
 })
