@@ -2,19 +2,24 @@ let Video=document.getElementById("video1");
 let model;
 let canvas=document.getElementById("canvas");
 let ctx = canvas.getContext("2d");
+let w=600;
+let h=400;
+//canvas.width = w;
+ //  canvas.height =h;
 const setupCamera = () => {
     navigator.mediaDevices.getUserMedia ({
-        video:{width:600 , height:400},
+        video:{width:w, height:h},
         audio : false
     }).then(stream =>{
         Video.srcObject=stream;
-        console.log("Dfsd")
+     //     let stream_settings = stream.getVideoTracks()[0].getSettings();
+
     });
 };
 const detectFaces = async () => {
     const prediction = await model.estimateFaces(Video,false);
     console.log(prediction)
-    ctx.drawImage(Video,0,0,600,400);
+    ctx.drawImage(Video,0,0,w,h);
     prediction.forEach( pred => {
     const start = pred.topLeft;
     const end = pred.bottomRight;
